@@ -1400,6 +1400,18 @@
             }
         });
 
+        // Auto-open modal if URL hash matches (e.g. #privacy, #privacy-policy, #deletion, #contact)
+        window.addEventListener('DOMContentLoaded', () => {
+            const hash = window.location.hash.toLowerCase();
+            if (hash === '#privacy' || hash === '#privacy-policy' || hash === '#privacy-modal') {
+                openModal('privacy-modal');
+            } else if (hash === '#deletion' || hash === '#delete-account' || hash === '#deletion-modal') {
+                openModal('deletion-modal');
+            } else if (hash === '#contact' || hash === '#contact-modal') {
+                openModal('contact-modal');
+            }
+        });
+
         // Copy Email Toast
         function copyEmail() {
             navigator.clipboard.writeText('rplaystore2026@gmail.com').then(() => {
@@ -1548,7 +1560,6 @@
     </script>
 </body>
 </html>
-
 
 
 
